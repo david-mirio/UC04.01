@@ -56,17 +56,17 @@ app.put("/api/usuario/:id", (req, res)=>{
     const {id} =req.params;
     const {nome, email, telefone} = req.body; 
     
-})
+
 if (!nome || !email || !telefone) {
         res.status(400).json({ "msg": "todos os campos devem ser preenchidos corretamente" });
         return
     }
-    const index = usuario.findIndex(u => u.id === parseInt(id));
+    const index = usuarios.findIndex(u => u.id === parseInt(id));
     if(index===-1){
         res.status(404).json({"msg": "nenhum usuario encontrado com este ID"})
         return;
     }
-    usuario[index] = {
+    usuarios[index] = {
         id: id,
         nome: nome,
         email: email
@@ -75,8 +75,19 @@ if (!nome || !email || !telefone) {
     res.status(200).json({
 
 "msg": "usuario atualizado com sucesso",
-"usuario": usuario[index]
+"usuario": usuarios[index]
 
+    }) })
+    app.delete("/api/usuario/:id", (req, res)=>{ 
+
+        const {id} = req.params
+       
+        if(!usuario){
+            res.status(404).json({"mgs": "nenhum usuario encontrado"})
+        return
+        }
+        usuarios = usuarios.filter(u => u.id !== parent(Id));
+        res.status(200).json("msg": "usuario deletado com sucesso");
     })
 app.listen(port, () => {
     console.log(`aplicação rodando e http://localhost:${port}`)
