@@ -1,9 +1,9 @@
 import express from "express"
-import usuarioRoutes from "./src/routes/usuario/usuarioRoutes.js"
+import alunoRoute from "./src/routes/aluno/AlunoRoutes.js"
 const app = express()
 const port = 3000
 
-app.use("/usuarios", usuarioRoutes);
+app.use("/aluno", alunoRoute);
 
 app.get("/", (req, res) => {
     res.send("Hello world !!!")

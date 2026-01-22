@@ -6,7 +6,7 @@ export class AlunoModel {
         return aluno;
     }
 
-    static BuscarId() {
+    static BuscarId(id) {
         return aluno.find(u => u.id === parseInt(id))
     }
 

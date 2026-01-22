@@ -13,7 +13,12 @@
 import express from "express";
 import { ALunoController } from "../../controllers/aluno/AlunoController.js";
 
-const router = express.router()
+const router = express.Router()
 
 router.get("/", ALunoController.listarTodos)
 router.get("/:id", ALunoController.listarUm)
+router.post("/", ALunoController.criarAluno)
+router.put("/:id", ALunoController.atualizarAluno)
+router.delete("/:id", ALunoController.deletarAluno)
+
+export default router;

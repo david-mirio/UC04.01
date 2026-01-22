@@ -1,7 +1,6 @@
 import { json } from "express"
-import { UsuarioModel } from "../../../../Aula 03/src/models/usuario/UsuarioModel.js"
-import { AlunoModel } from "../../models/aluno/AlunoModels.js"
-import { usuario } from "../../../../Aula 03/src/data/Banco.js"
+import { AlunoModel } from "../../../../Aula 04/src/models/aluno/AlunoModels.js";
+import { aluno } from "../../../../Aula 04/src/data/Banco.js"
 
 
 export class ALunoController {
@@ -32,7 +31,7 @@ export class ALunoController {
             const aluno = AlunoModel.BuscarId(id)
             res.status(200).json({ msg: "Usuario buscado ", aluno })
         } catch (error) {
-            res.status(404).json({ msg: "erro interno na busca do id", error: error.messagem })
+            res.status(404).json({ msg: "erro interno na busca do id", erro: error.message })
         }
 
     }
@@ -49,7 +48,7 @@ const matriculaUnica = matricula.find(m => m.matricula === matricula )
             return
         }
         } catch (error) {
-res.status(404).json({msg: "erro interno na matricula", error: error.messagem})
+res.status(404).json({msg: "erro interno na matricula", error: erro.message})
         }
     }
 static atualizarAluno(req, res){
