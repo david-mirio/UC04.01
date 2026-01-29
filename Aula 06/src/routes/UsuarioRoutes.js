@@ -1,9 +1,15 @@
-import { UsuarioController } from "../controller/UsuarioController.js";
-import express from "express"
+import { UsuarioController } from "../controllers/UsuarioController.js";
+import express from "express";
 
-const router = express.router()
 
-router.get("/", UsuarioController.listarUsuarios)
-router.get("/", UsuarioController.criarUsuario)
+const router = express.Router();
+
+
+router.get("/", UsuarioController.listarUsuarios);
+router.post("/", UsuarioController.criarUsuario);
+router.get("/:id", UsuarioController.buscarPorId);
+router.put("/:id", UsuarioController.atualizarUsuario);
+router.delete("/:id", UsuarioController.deletarUsuario);
+
 
 export default router;
